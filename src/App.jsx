@@ -13,6 +13,8 @@ import FAQ from './pages/FAQ'
 import Blog from './pages/Blog'
 import Contact from './pages/Contact'
 import Careers from './pages/Careers'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsOfService from './pages/TermsOfService'
 import './index.css'
 
 function ScrollToTop() {
@@ -39,6 +41,8 @@ function AppContent() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
         </Routes>
       </AnimatePresence>
       <Footer />

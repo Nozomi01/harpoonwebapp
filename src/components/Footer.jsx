@@ -16,12 +16,10 @@ const footerLinks = {
     { label: 'The Game', path: '/game' },
     { label: 'How It Works', path: '/game#mechanics' },
     { label: 'Leaderboard', path: '/game#leaderboard' },
-    { label: 'API Docs', path: '/game#api' },
   ],
   Resources: [
     { label: 'Blog', path: '/blog' },
     { label: 'FAQ', path: '/faq' },
-    { label: 'Community', path: '/contact' },
     { label: 'Contact Us', path: '/contact' },
   ],
 }
@@ -56,7 +54,7 @@ export default function Footer() {
                 <Zap size={18} color="#fff" />
               </div>
               <span style={{ fontFamily: 'var(--font-display)', fontSize: 15, fontWeight: 700 }}>
-                HARPOON <span className="text-gradient">STUDIOS</span>
+                HARPOON <span className="text-gradient">INNOVATION</span>
               </span>
             </Link>
             <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.7, maxWidth: 300, marginBottom: 28 }}>
@@ -109,8 +107,8 @@ export default function Footer() {
           display: 'flex', gap: 32, flexWrap: 'wrap',
         }}>
           {[
-            { icon: <Mail size={15} />, text: 'hello@harpoonstudios.io' },
-            { icon: <MapPin size={15} />, text: 'San Francisco, CA' },
+            { icon: <Mail size={15} />, text: 'hello@harpooninnovation.com' },
+            { icon: <MapPin size={15} />, text: 'Chapel Hill, NC' },
           ].map((item, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, color: 'var(--text-secondary)', fontSize: 14 }}>
               <span style={{ color: 'var(--color-cyan)' }}>{item.icon}</span>
@@ -126,15 +124,18 @@ export default function Footer() {
           flexWrap: 'wrap', gap: 16,
         }}>
           <p style={{ color: 'var(--text-muted)', fontSize: 13 }}>
-            © 2025 Harpoon Studios Inc. All rights reserved.
+            © 2026 Harpoon Innovation Inc. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: 24 }}>
-            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map(t => (
-              <a key={t} href="#" style={{ color: 'var(--text-muted)', fontSize: 13, transition: 'color 0.2s' }}
+            {[
+              { label: 'Privacy Policy', path: '/privacy' },
+              { label: 'Terms of Service', path: '/terms' },
+            ].map(t => (
+              <Link key={t.path} to={t.path} style={{ color: 'var(--text-muted)', fontSize: 13, transition: 'color 0.2s', textDecoration: 'none' }}
                 onMouseEnter={e => e.target.style.color = 'var(--color-cyan)'}
                 onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>
-                {t}
-              </a>
+                {t.label}
+              </Link>
             ))}
           </div>
         </div>

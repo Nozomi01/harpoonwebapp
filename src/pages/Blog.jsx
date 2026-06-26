@@ -9,7 +9,7 @@ const posts = [
     categoryColor: 'cyan',
     title: 'Why the harpoon mechanic changes everything about programming games',
     excerpt: 'When we first prototyped the harpoon, we thought it would be a novelty. Three months of playtesting later, we realized it had fundamentally shifted how players think about spatial strategy in code. Here\'s the story of how one mechanic became the soul of the game.',
-    date: 'June 12, 2025',
+    date: 'June 12, 2026',
     readTime: '8 min read',
     author: 'Marcus Chen',
     authorRole: 'Co-Founder',
@@ -44,7 +44,7 @@ const posts = [
     excerpt: 'A step-by-step walkthrough for absolute beginners. By the end, you\'ll have a bot that can move, aim, and throw a harpoon. No prior game development experience required.',
     date: 'April 30, 2025',
     readTime: '15 min read',
-    author: 'Jordan Kim',
+    author: 'Tatsuya Yamamoto',
     authorRole: 'Developer',
   },
   {
@@ -55,7 +55,7 @@ const posts = [
     excerpt: 'Battle replays are only useful if you can understand them. Our design process for the new spectator UI — from wireframe to the glowing arena display you see today.',
     date: 'April 14, 2025',
     readTime: '7 min read',
-    author: 'Sofia Laurent',
+    author: 'Kaitlyn Krueger',
     authorRole: 'Designer',
   },
   {
@@ -71,12 +71,12 @@ const posts = [
   },
 ]
 
-const authorInitials = { 'Marcus Chen': 'MC', 'Alex Rivera': 'AR', 'Jordan Kim': 'JK', 'Sofia Laurent': 'SL' }
+const authorInitials = { 'Marcus Chen': 'MC', 'Alex Rivera': 'AR', 'Tatsuya Yamamoto': 'JK', 'Kaitlyn Krueger': 'SL' }
 const authorGradients = {
   'Marcus Chen': 'linear-gradient(135deg, #00d4ff, #0088aa)',
   'Alex Rivera': 'linear-gradient(135deg, #8b5cf6, #6d28d9)',
-  'Jordan Kim': 'linear-gradient(135deg, #10b981, #059669)',
-  'Sofia Laurent': 'linear-gradient(135deg, #f472b6, #ec4899)',
+  'Tatsuya Yamamoto': 'linear-gradient(135deg, #10b981, #059669)',
+  'Kaitlyn Krueger': 'linear-gradient(135deg, #f472b6, #ec4899)',
 }
 
 export default function Blog() {
@@ -93,7 +93,7 @@ export default function Blog() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="section-badge"><BookOpen size={11} /> Blog</span>
             <h1 className="section-title" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}>
-              From the<br /><span className="text-gradient">Harpoon Studios</span> team
+              From the<br /><span className="text-gradient">Harpoon Innovation</span> team
             </h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: 520, margin: '0 auto', lineHeight: 1.7 }}>
               Game design decisions, technical deep-dives, community highlights, and tutorials from the people building the arena.

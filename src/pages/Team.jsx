@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Share2, Network, Terminal, Mail } from 'lucide-react'
+import { Mail } from 'lucide-react'
 
 /* ─────────────────────────────────────────────────────────────────
    Local Zhao Li Ying photos — served from /public/team/
    Sources: Wikimedia Commons (CC BY-SA), downloaded locally
 ───────────────────────────────────────────────────────────────── */
 const ZLY = {
-  pose1: '/team/zly1.jpg',  // Chinese Restaurant announcement — natural pose
-  pose2: '/team/zly2.jpg',  // Chinese Restaurant (cropped) — close-up portrait
-  pose3: '/team/zly3.jpg',  // Tokyo Film Festival 2024 — red carpet full gown
-  pose4: '/team/zly4.jpg',  // Tokyo Film Festival 2024 — evening look
-  pose5: '/team/zly5.jpg',  // Tokyo Film Festival 2024 (cropped) — upper body
+  pose1: '/team/john.png',  // Chinese Restaurant announcement — natural pose
+  pose2: '/team/designer.png',  // Chinese Restaurant (cropped) — close-up portrait
+  pose3: '/team/ryan_wang.png',  // Tokyo Film Festival 2024 — red carpet full gown
+  pose4: '/team/japan.png',  // Tokyo Film Festival 2024 — evening look
+  pose5: '/team/james_head.png',  // Dr. James Head
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -19,34 +19,25 @@ const ZLY = {
 ───────────────────────────────────────────────────────────────── */
 const team = [
   {
-    name: 'Mei Lin Zhao',
+    name: 'John Ellsworth',
     role: 'Co-Founder & CEO',
     photo: ZLY.pose1,
     glow: 'rgba(0,212,255,0.5)',
     accent: '#00d4ff',
-    bio: 'Former game engine engineer at Unity. Obsessed with competitive programming since college. Designed the original harpoon physics model on a whiteboard and refused to let anyone erase it.',
+    bio: 'Former Human Resources Specialist. Obsessed with competitive programming since college. Designed the original harpoon physics model on a whiteboard and refused to let anyone erase it.',
     tags: ['Game Design', 'Business', 'AI'],
   },
   {
-    name: 'Sofia Laurent',
-    role: 'Lead Designer',
-    photo: ZLY.pose2,
-    glow: 'rgba(244,114,182,0.5)',
-    accent: '#f472b6',
-    bio: 'UX and visual design lead with a background in motion graphics and competitive gaming. Every particle effect, every animation, every UI detail has her fingerprints on it.',
-    tags: ['UX/UI', 'Motion', 'Brand'],
-  },
-  {
-    name: 'Elena Vasquez',
+    name: 'Ryan Wang',
     role: 'CTO',
     photo: ZLY.pose3,
     glow: 'rgba(139,92,246,0.5)',
     accent: '#8b5cf6',
-    bio: 'Built real-time multiplayer systems for 8 years. Responsible for the deterministic physics engine and the FOV system that makes every fight feel completely fair.',
-    tags: ['Systems', 'Architecture', 'C++'],
+    bio: 'Senior Software Engineer & Marketing Automation Specialist. Built real-time multiplayer systems for 8 years. Responsible for the deterministic physics engine and the FOV system that makes every fight feel completely fair.',
+    tags: ['Systems', 'Architecture', 'Web Tech Stacks', 'Blockchain'],
   },
   {
-    name: 'Jordan Kim',
+    name: 'Tatsuya Yamamoto',
     role: 'Senior Developer',
     photo: ZLY.pose4,
     glow: 'rgba(16,185,129,0.5)',
@@ -54,20 +45,29 @@ const team = [
     bio: 'Full-stack specialist with a deep love for developer experience. Built the entire bot API and SDK from scratch. If your error message makes sense, Jordan wrote it.',
     tags: ['Frontend', 'API', 'DX'],
   },
+  {
+    name: 'Kaitlyn Krueger',
+    role: 'UI Designer',
+    photo: ZLY.pose2,
+    glow: 'rgba(244,114,182,0.5)',
+    accent: '#f472b6',
+    bio: 'UX and visual design lead with a background in motion graphics and competitive gaming. Every particle effect, every animation, every UI detail has her fingerprints on it.',
+    tags: ['UX/UI', 'Motion', 'Brand'],
+  },
 ]
 
 const advisors = [
   {
-    name: 'Dr. Priya Nair',
+    name: 'Dr. James Head',
     role: 'AI Research Advisor',
     photo: ZLY.pose5,
     accent: '#f59e0b',
     glow: 'rgba(245,158,11,0.4)',
   },
   {
-    name: 'Hana Yamamoto',
+    name: 'Hana Alamassi',
     role: 'Gaming Industry Advisor',
-    photo: ZLY.pose2,
+    photo: '/team/hana.png',
     accent: '#06b6d4',
     glow: 'rgba(6,182,212,0.4)',
   },
@@ -97,112 +97,102 @@ function TeamCard({ member, index }) {
         transform: hovered ? 'translateY(-10px) scale(1.01)' : 'translateY(0) scale(1)',
         transition: 'all 0.45s cubic-bezier(0.22, 1, 0.36, 1)',
         cursor: 'default',
+        padding: '32px 24px 24px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center',
       }}>
 
-      {/* ── Photo ─────────────────────────────────────── */}
-      <div style={{ position: 'relative', paddingTop: '118%', overflow: 'hidden' }}>
+      {/* ── Colour bloom behind avatar ─────────────────── */}
+      <div style={{
+        position: 'absolute', top: 0, left: 0, right: 0, height: 180,
+        background: `radial-gradient(ellipse at 50% 0%, ${member.glow} 0%, transparent 70%)`,
+        opacity: hovered ? 0.9 : 0.5,
+        transition: 'opacity 0.4s',
+        pointerEvents: 'none',
+      }} />
 
-        {/* Colour bloom */}
+      {/* ── Circular avatar ────────────────────────────── */}
+      <div style={{ position: 'relative', zIndex: 1, marginBottom: 20 }}>
+        {/* Animated glow ring */}
         <div style={{
-          position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
-          background: `radial-gradient(ellipse at 50% 20%, ${member.glow} 0%, transparent 60%)`,
-          opacity: hovered ? 1 : 0.55,
+          position: 'absolute', inset: -4,
+          borderRadius: '50%',
+          background: `conic-gradient(from 0deg, ${member.accent}90, transparent 60%, ${member.accent}60, transparent 100%)`,
+          opacity: hovered ? 1 : 0.5,
           transition: 'opacity 0.4s',
+          animation: hovered ? 'spin 4s linear infinite' : 'none',
         }} />
-
-        <img
-          src={member.photo}
-          alt={member.name}
-          style={{
-            position: 'absolute', inset: 0,
-            width: '100%', height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center top',
-            display: 'block',
-            filter: hovered
-              ? 'saturate(1.18) contrast(1.06) brightness(1.05)'
-              : 'saturate(1.05) contrast(1.01)',
-            transform: hovered ? 'scale(1.07)' : 'scale(1)',
-            transition: 'filter 0.5s ease, transform 0.6s ease',
-          }}
-        />
-
-        {/* Bottom fade */}
+        {/* Inner dark ring to separate glow from image */}
         <div style={{
-          position: 'absolute', bottom: 0, left: 0, right: 0,
-          height: '60%', zIndex: 2, pointerEvents: 'none',
-          background: `linear-gradient(to top,
-            rgba(7,7,30,1) 0%,
-            rgba(7,7,30,0.9) 22%,
-            rgba(7,7,30,0.45) 55%,
-            transparent 100%)`,
+          position: 'absolute', inset: -1,
+          borderRadius: '50%',
+          border: `2px solid ${member.accent}40`,
         }} />
-
-        {/* Role badge */}
         <div style={{
-          position: 'absolute', top: 18, right: 18, zIndex: 3,
-          padding: '5px 14px', borderRadius: 50,
-          fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
-          background: 'rgba(4,4,20,0.78)', backdropFilter: 'blur(12px)',
-          border: `1px solid ${member.accent}45`, color: member.accent,
-        }}>{member.role}</div>
-
-        {/* Name + tags on photo bottom */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 3, padding: '0 24px 20px' }}>
-          <h3 style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(1rem, 1.3vw, 1.3rem)',
-            fontWeight: 800, lineHeight: 1.15, marginBottom: 10,
-          }}>{member.name}</h3>
-          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-            {member.tags.map(tag => (
-              <span key={tag} style={{
-                padding: '3px 10px', borderRadius: 50,
-                fontSize: 10, fontWeight: 600, letterSpacing: '0.06em',
-                background: `${member.accent}18`,
-                border: `1px solid ${member.accent}35`,
-                color: member.accent,
-              }}>{tag}</span>
-            ))}
-          </div>
+          width: 203, height: 203,
+          borderRadius: '50%',
+          overflow: 'hidden',
+          position: 'relative',
+        }}>
+          <img
+            src={member.photo}
+            alt={member.name}
+            style={{
+              width: '100%', height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center top',
+              display: 'block',
+              filter: hovered
+                ? 'saturate(1.18) contrast(1.06) brightness(1.05)'
+                : 'saturate(1.05) contrast(1.01)',
+              transform: hovered ? 'scale(1.08)' : 'scale(1)',
+              transition: 'filter 0.5s ease, transform 0.6s ease',
+            }}
+          />
         </div>
       </div>
 
-      {/* ── Bio & socials ────────────────────────────────── */}
-      <div style={{ padding: '20px 24px 24px' }}>
-        <p style={{ color: 'var(--text-secondary)', fontSize: 13.5, lineHeight: 1.78, marginBottom: 20 }}>
-          {member.bio}
-        </p>
-
-        <div style={{ display: 'flex', gap: 8 }}>
-          {[
-            { icon: <Share2 size={13} />, label: 'Twitter' },
-            { icon: <Network size={13} />, label: 'LinkedIn' },
-            { icon: <Terminal size={13} />, label: 'GitHub' },
-            { icon: <Mail size={13} />, label: 'Email' },
-          ].map((s, i) => (
-            <a key={i} href="#" title={s.label} style={{
-              width: 33, height: 33, borderRadius: 9,
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.07)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              color: 'var(--text-muted)', transition: 'all 0.2s',
-            }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background = `${member.accent}18`
-                e.currentTarget.style.borderColor = `${member.accent}45`
-                e.currentTarget.style.color = member.accent
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.04)'
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'
-                e.currentTarget.style.color = 'var(--text-muted)'
-              }}>
-              {s.icon}
-            </a>
+      {/* ── Name, role, tags ───────────────────────────── */}
+      <div style={{ position: 'relative', zIndex: 1, marginBottom: 16, width: '100%' }}>
+        <h3 style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 'clamp(1rem, 1.2vw, 1.2rem)',
+          fontWeight: 800, lineHeight: 1.2, marginBottom: 6,
+        }}>{member.name}</h3>
+        <div style={{
+          display: 'inline-block',
+          padding: '4px 14px', borderRadius: 50, marginBottom: 12,
+          fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
+          background: `${member.accent}15`,
+          border: `1px solid ${member.accent}40`,
+          color: member.accent,
+        }}>{member.role}</div>
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', justifyContent: 'center' }}>
+          {member.tags.map(tag => (
+            <span key={tag} style={{
+              padding: '3px 10px', borderRadius: 50,
+              fontSize: 10, fontWeight: 600, letterSpacing: '0.06em',
+              background: `${member.accent}10`,
+              border: `1px solid ${member.accent}30`,
+              color: member.accent,
+            }}>{tag}</span>
           ))}
         </div>
       </div>
+
+      {/* ── Divider ────────────────────────────────────── */}
+      <div style={{
+        width: '80%', height: 1, marginBottom: 16,
+        background: `linear-gradient(90deg, transparent, ${member.accent}40, transparent)`,
+      }} />
+
+      {/* ── Bio & socials ──────────────────────────────── */}
+      <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 13, lineHeight: 1.75, marginBottom: 20, textAlign: 'left' }}>
+        {member.bio}
+      </p>
+
 
       {/* Accent line */}
       <div style={{
@@ -212,6 +202,8 @@ function TeamCard({ member, index }) {
         opacity: hovered ? 1 : 0.35,
         transition: 'opacity 0.4s',
       }} />
+
+      <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
     </motion.div>
   )
 }
@@ -230,33 +222,54 @@ function AdvisorCard({ person, index }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        borderRadius: 22, overflow: 'hidden',
+        borderRadius: 22,
         background: 'rgba(7,7,30,0.8)',
         border: `1px solid ${hovered ? person.accent + '45' : 'rgba(255,255,255,0.07)'}`,
         boxShadow: hovered ? `0 20px 60px ${person.glow}` : 'none',
         transform: hovered ? 'translateY(-6px)' : 'translateY(0)',
         transition: 'all 0.4s ease',
+        padding: '28px 24px 24px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden',
       }}>
-      <div style={{ position: 'relative', paddingTop: '82%', overflow: 'hidden' }}>
+      {/* Colour bloom */}
+      <div style={{
+        position: 'absolute', top: 0, left: 0, right: 0, height: 150,
+        background: `radial-gradient(ellipse at 50% 0%, ${person.glow} 0%, transparent 70%)`,
+        opacity: hovered ? 0.9 : 0.45,
+        transition: 'opacity 0.4s',
+        pointerEvents: 'none',
+      }} />
+
+      {/* Circular avatar */}
+      <div style={{ position: 'relative', zIndex: 1, marginBottom: 16 }}>
         <div style={{
-          position: 'absolute', inset: 0, zIndex: 1,
-          background: `radial-gradient(ellipse at 50% 10%, ${person.glow} 0%, transparent 65%)`,
-        }} />
-        <img src={person.photo} alt={person.name} style={{
-          position: 'absolute', inset: 0,
-          width: '100%', height: '100%',
-          objectFit: 'cover', objectPosition: 'center top',
-          transform: hovered ? 'scale(1.07)' : 'scale(1)',
-          transition: 'transform 0.5s ease',
+          position: 'absolute', inset: -3,
+          borderRadius: '50%',
+          border: `2px solid ${person.accent}50`,
+          opacity: hovered ? 1 : 0.6,
+          transition: 'opacity 0.4s',
         }} />
         <div style={{
-          position: 'absolute', bottom: 0, left: 0, right: 0, height: '45%',
-          zIndex: 2,
-          background: 'linear-gradient(to top, rgba(7,7,30,1) 0%, transparent 100%)',
-        }} />
+          width: 143, height: 143,
+          borderRadius: '50%',
+          overflow: 'hidden',
+        }}>
+          <img src={person.photo} alt={person.name} style={{
+            width: '100%', height: '100%',
+            objectFit: 'cover', objectPosition: 'center top',
+            transform: hovered ? 'scale(1.08)' : 'scale(1)',
+            transition: 'transform 0.5s ease',
+          }} />
+        </div>
       </div>
-      <div style={{ padding: '12px 24px 24px', textAlign: 'center' }}>
-        <h4 style={{ fontFamily: 'var(--font-display)', fontSize: 16, marginBottom: 5 }}>{person.name}</h4>
+
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <h4 style={{ fontFamily: 'var(--font-display)', fontSize: 16, marginBottom: 6 }}>{person.name}</h4>
         <p style={{ color: person.accent, fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>{person.role}</p>
       </div>
     </motion.div>
@@ -358,7 +371,7 @@ export default function Team() {
             </p>
             <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
               <a href="/careers" className="btn btn-primary">View Open Roles</a>
-              <a href="mailto:hello@harpoonstudios.io" className="btn btn-secondary">
+              <a href="mailto:hello@harpooninnovation.com" className="btn btn-secondary">
                 <Mail size={15} /> Say Hello
               </a>
             </div>

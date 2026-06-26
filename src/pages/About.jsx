@@ -20,7 +20,7 @@ export default function About() {
               We believe <span className="text-gradient">coding should feel</span><br />like play
             </motion.h1>
             <motion.p variants={fadeUp} style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.5vw, 1.15rem)', maxWidth: 580, margin: '0 auto', lineHeight: 1.7 }}>
-              Harpoon Studios was born from a simple idea: what if the most effective way to learn AI programming was through an adrenaline-fueled battle arena?
+              Harpoon Innovation was born from a simple idea: what if the most effective way to learn AI programming was through an adrenaline-fueled battle arena?
             </motion.p>
           </motion.div>
         </div>
@@ -40,7 +40,7 @@ export default function About() {
                 After two years of prototyping, dozens of playtest groups, and more coffee than we care to admit, Harpoon Arenas went live — and players haven't stopped coding since.
               </p>
               <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
-                Today, Harpoon Studios is a small but fierce team of engineers, game designers, and competitive programmers united by a single mission: make AI programming fun, accessible, and wildly competitive.
+                Today, Harpoon Innovation is a small but fierce team of engineers, game designers, and competitive programmers united by a single mission: make AI programming fun, accessible, and wildly competitive.
               </p>
             </motion.div>
 

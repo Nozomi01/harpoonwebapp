@@ -101,7 +101,7 @@ function JobCard({ job }) {
               <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 28 }}>
                 {job.skills.map(s => <span key={s} className="tag tag-cyan" style={{ fontSize: 11 }}>{s}</span>)}
               </div>
-              <a href="mailto:hello@harpoonstudios.io" className="btn btn-primary" style={{ padding: '12px 28px' }}>
+              <a href="mailto:hello@harpooninnovation.com" className="btn btn-primary" style={{ padding: '12px 28px' }}>
                 <Briefcase size={14} /> Apply for This Role
               </a>
             </div>
@@ -136,7 +136,7 @@ export default function Careers() {
       <section className="section">
         <div className="container section-center">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <span className="section-badge"><Heart size={11} /> Why Harpoon Studios</span>
+            <span className="section-badge"><Heart size={11} /> Why Harpoon Innovation</span>
             <h2 className="section-title">Perks & benefits</h2>
             <div className="glow-divider" />
           </motion.div>
@@ -189,7 +189,7 @@ export default function Careers() {
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 32, fontSize: 15 }}>
               Send us an open application anyway. If you're excellent at what you do and love what we're building, we'd love to hear from you.
             </p>
-            <a href="mailto:hello@harpoonstudios.io" className="btn btn-primary">
+            <a href="mailto:hello@harpooninnovation.com" className="btn btn-primary">
               <Zap size={15} /> Send Open Application
             </a>
           </motion.div>

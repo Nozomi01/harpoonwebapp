@@ -53,7 +53,7 @@ export default function Navbar() {
             <Zap size={18} color="#fff" />
           </div>
           <span style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, letterSpacing: '0.05em' }}>
-            HARPOON <span className="text-gradient">STUDIOS</span>
+            HARPOON <span className="text-gradient">INNOVATION</span>
           </span>
         </Link>
 

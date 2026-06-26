@@ -1,8 +1,8 @@
-# Harpoon Studios — Company Website
+# Harpoon Innovation — Company Website
 
 > **Code. Fight. Dominate.**
 >
-> The official marketing website for Harpoon Studios — an AI robot programming game where you write code to control robots that fight in an arena using a unique harpoon mechanic.
+> The official marketing website for Harpoon Innovation — an AI robot programming game where you write code to control robots that fight in an arena using a unique harpoon mechanic.
 
 ---
 
@@ -37,7 +37,7 @@ A fully static, single-page-application marketing site built with **React 19** a
 
 ```bash
 # 1. Navigate to the project
-cd harpoon-studios
+cd harpoon-innovation
 
 # 2. Install dependencies
 npm install
@@ -64,7 +64,7 @@ The app runs at **http://localhost:5173**
 ## Project Structure
 
 ```
-harpoon-studios/
+harpoon-innovation/
 ├── public/
 │   ├── favicon.svg          # SVG favicon
 │   ├── icons.svg            # Shared icon sprite
@@ -204,6 +204,6 @@ The site is fully static — no backend, no API, no environment variables requir
 
 ## Contact
 
-**Harpoon Studios Inc.**
-San Francisco, CA
-hello@harpoonstudios.io
+**Harpoon Innovation Inc.**
+Chapel Hill, NC
+hello@harpooninnovation.com

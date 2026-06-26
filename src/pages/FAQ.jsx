@@ -39,7 +39,7 @@ const faqs = [
       { q: 'Is Harpoon Arenas free to play?', a: 'Yes. The free tier gives you full access to the game, ranked matchmaking, sandbox testing, and community features. We offer a Pro tier ($9/month) that adds unlimited match history, advanced analytics, private 1v1 challenges, and priority queue access.' },
       { q: 'Do I need to create an account?', a: 'Yes, an account is required to submit bots and participate in ranked matches. We support sign-in with GitHub, Google, or email/password. Your bot code is stored securely in our cloud under your account.' },
       { q: 'Can I have multiple bots?', a: 'Free users can maintain up to 3 bot slots. Pro users get unlimited slots. Only one bot can be "active" in ranked queue at a time.' },
-      { q: 'Are there educational or team plans?', a: 'Yes! We offer classroom plans for educators (free for up to 30 students) and enterprise plans for companies running internal tournaments. Contact us at hello@harpoonstudios.io for details.' },
+      { q: 'Are there educational or team plans?', a: 'Yes! We offer classroom plans for educators (free for up to 30 students) and enterprise plans for companies running internal tournaments. Contact us at hello@harpooninnovation.com for details.' },
     ],
   },
   {
@@ -191,7 +191,6 @@ export default function FAQ() {
             </p>
             <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link to="/contact" className="btn btn-primary"><Zap size={15} /> Contact Us</Link>
-              <a href="#" className="btn btn-secondary">Join Discord</a>
             </div>
           </motion.div>
         </div>

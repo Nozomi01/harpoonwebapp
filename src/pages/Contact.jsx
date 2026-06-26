@@ -1,9 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Clock, Share2, Terminal, Network, Send, MessageSquare, Zap } from 'lucide-react'
-const Twitter = Share2
-const Github = Terminal
-const Linkedin = Network
+import { Mail, MapPin, Clock, Send, Zap } from 'lucide-react'
 
 const contactReasons = ['General Inquiry', 'Game Bug Report', 'Partnership', 'Press / Media', 'Career', 'Educational Use', 'Enterprise']
 
@@ -47,8 +44,8 @@ export default function Contact() {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
                 {[
-                  { icon: <Mail size={20} />, color: 'cyan', label: 'Email', value: 'hello@harpoonstudios.io', sub: 'For all inquiries' },
-                  { icon: <MapPin size={20} />, color: 'purple', label: 'Location', value: 'San Francisco, CA', sub: 'Remote-first team' },
+                  { icon: <Mail size={20} />, color: 'cyan', label: 'Email', value: 'hello@harpooninnovation.com', sub: 'For all inquiries' },
+                  { icon: <MapPin size={20} />, color: 'purple', label: 'Location', value: 'Chapel Hill, NC', sub: 'Remote-first team' },
                   { icon: <Clock size={20} />, color: 'orange', label: 'Response Time', value: '< 24 hours', sub: 'Mon–Fri, 9am–6pm PT' },
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
@@ -62,52 +59,6 @@ export default function Contact() {
                 ))}
               </div>
 
-              <div className="h-divider" style={{ margin: '36px 0' }} />
-
-              {/* Social links */}
-              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: 16 }}>
-                Follow Us
-              </h4>
-              <div style={{ display: 'flex', gap: 12 }}>
-                {[
-                  { icon: <Twitter size={17} />, label: 'Twitter' },
-                  { icon: <Github size={17} />, label: 'GitHub' },
-                  { icon: <Linkedin size={17} />, label: 'LinkedIn' },
-                ].map((s, i) => (
-                  <a key={i} href="#" style={{
-                    display: 'flex', alignItems: 'center', gap: 8,
-                    padding: '10px 16px', borderRadius: 'var(--radius-sm)',
-                    background: 'var(--bg-card)', border: '1px solid var(--border)',
-                    color: 'var(--text-secondary)', fontSize: 13, transition: 'all 0.2s',
-                  }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-cyan)'; e.currentTarget.style.color = 'var(--color-cyan)' }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text-secondary)' }}>
-                    {s.icon} {s.label}
-                  </a>
-                ))}
-              </div>
-
-              {/* Discord CTA */}
-              <div style={{
-                marginTop: 32, padding: 24, borderRadius: 'var(--radius-lg)',
-                background: 'rgba(88,101,242,0.1)', border: '1px solid rgba(88,101,242,0.25)',
-              }}>
-                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: 14, marginBottom: 8, color: '#7289da' }}>
-                  <MessageSquare size={14} style={{ display: 'inline', marginRight: 8 }} />
-                  Join our Discord
-                </h4>
-                <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.6, marginBottom: 16 }}>
-                  Get faster help, share strategies, and chat directly with the dev team.
-                </p>
-                <a href="#" style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 8,
-                  padding: '9px 18px', borderRadius: 50,
-                  background: '#5865f2', color: '#fff', fontSize: 13, fontWeight: 600,
-                  transition: 'opacity 0.2s',
-                }}>
-                  <MessageSquare size={14} /> Join Discord
-                </a>
-              </div>
             </motion.div>
 
             {/* Form */}
